@@ -1,2 +1,165 @@
-<section id="contact" class="contact"><div class="contact-inner"><div class="copy"><span>GET IN TOUCH</span><h2>WE'D LOVE TO<br><strong>HEAR FROM YOU</strong></h2><i></i><p>Have a question, feedback or bulk enquiry?<br>We are here to help you.</p><a class="email" href="mailto:a1spicegreens@gmail.com">✉ <strong>a1spicegreens@gmail.com</strong></a><a class="email-button" href="mailto:a1spicegreens@gmail.com">SEND US AN EMAIL ➤</a></div>
-<form class="form" #f="ngForm" (ngSubmit)="submit(f)" novalidate><div class="row"><label>Your Name<input name="name" ngModel required autocomplete="name" placeholder="Your Name"></label><label>Your Email<input name="email" ngModel required email autocomplete="email" placeholder="Your Email"></label></div><label>Subject<input name="subject" ngModel placeholder="Subject"></label><label>Message<textarea name="message" ngModel required rows="6" placeholder="Message"></textarea></label><button type="submit">SEND MESSAGE ➤</button>@if(submitted){<p class="sent">Your email application should open with the enquiry details.</p>}</form></div></section>
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+
+    <!-- LEFT: CONTACT INFORMATION -->
+    <div class="contact-info">
+
+      <span class="eyebrow">GET IN TOUCH</span>
+
+      <h2>
+        WE'D LOVE TO
+        <span>HEAR FROM YOU</span>
+      </h2>
+
+      <div class="heading-line"></div>
+
+      <p class="contact-description">
+        Have a question, feedback or bulk enquiry?
+        <br />
+        We are here to help you.
+      </p>
+
+      <a
+        class="email-link"
+        href="mailto:a1spicegreens@gmail.com"
+      >
+        <span class="email-icon">✉</span>
+        <strong>a1spicegreens@gmail.com</strong>
+      </a>
+
+      <a
+        class="email-button"
+        href="mailto:a1spicegreens@gmail.com"
+      >
+        SEND US AN EMAIL
+        <span>➤</span>
+      </a>
+
+    </div>
+
+
+    <!-- RIGHT: CONTACT FORM -->
+    <div class="contact-form-wrapper">
+
+      <form
+        class="contact-form"
+        #contactForm="ngForm"
+        (ngSubmit)="submit(contactForm)"
+        novalidate
+      >
+
+        <!-- NAME + EMAIL -->
+        <div class="form-row">
+
+          <div class="form-field">
+            <label for="name">Your Name</label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              [(ngModel)]="formData.name"
+              required
+              #name="ngModel"
+            />
+
+            <small
+              class="error"
+              *ngIf="name.invalid && name.touched"
+            >
+              Please enter your name.
+            </small>
+          </div>
+
+
+          <div class="form-field">
+            <label for="email">Your Email</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              [(ngModel)]="formData.email"
+              required
+              email
+              #email="ngModel"
+            />
+
+            <small
+              class="error"
+              *ngIf="email.invalid && email.touched"
+            >
+              Please enter a valid email.
+            </small>
+          </div>
+
+        </div>
+
+
+        <!-- SUBJECT -->
+        <div class="form-field">
+          <label for="subject">Subject</label>
+
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="Subject"
+            [(ngModel)]="formData.subject"
+            required
+            #subject="ngModel"
+          />
+
+          <small
+            class="error"
+            *ngIf="subject.invalid && subject.touched"
+          >
+            Please enter a subject.
+          </small>
+        </div>
+
+
+        <!-- MESSAGE -->
+        <div class="form-field">
+          <label for="message">Message</label>
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            rows="6"
+            [(ngModel)]="formData.message"
+            required
+            #message="ngModel"
+          ></textarea>
+
+          <small
+            class="error"
+            *ngIf="message.invalid && message.touched"
+          >
+            Please enter your message.
+          </small>
+        </div>
+
+
+        <!-- SUBMIT -->
+        <button
+          type="submit"
+          class="submit-button"
+          [disabled]="submitted"
+        >
+          <span>
+            {{ submitted ? 'MESSAGE READY' : 'SEND MESSAGE' }}
+          </span>
+
+          <span>➤</span>
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
