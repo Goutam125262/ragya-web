@@ -1,0 +1,3 @@
+<section id="future" class="future section-shell"><div class="heading"><span>WHAT'S NEXT</span><h2>OUR FUTURE PRODUCTS</h2><i></i></div><div class="future-grid">
+@for(product of products;track product.title){<article><div class="future-image"><img [src]="product.image" [alt]="product.title"></div><div class="future-info"><b>{{product.icon}}</b><h3>{{product.title}}</h3><p>{{product.description}}</p><span>COMING SOON</span></div></article>}
+</div></section>

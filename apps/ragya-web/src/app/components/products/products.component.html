@@ -1,0 +1,7 @@
+<section id="products" class="products section-shell">
+<div class="heading"><span>RAGYA COLLECTION</span><h2>OUR PRODUCTS</h2><i></i></div>
+<div class="product-grid">
+@for(product of products;track product.weight){<article class="card"><div class="image"><img [src]="product.image" [alt]="product.name+' '+product.weight"></div><div class="info"><small>PREMIUM QUALITY</small><h3>{{product.name}}<br>{{product.weight}}</h3><p>{{product.description}}</p><button type="button" (click)="viewDetails(product)">VIEW DETAILS</button></div></article>}
+</div>
+@if(selectedProduct){<div class="backdrop" (click)="closeDetails()"><div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()"><button class="close" type="button" (click)="closeDetails()">×</button><img [src]="selectedProduct.image" [alt]="selectedProduct.name"><div><small>RAGYA</small><h3>{{selectedProduct.name}} {{selectedProduct.weight}}</h3><p>{{selectedProduct.description}}</p><p>For bulk enquiries or product information, contact our team below.</p><a href="#contact" (click)="closeDetails()">CONTACT US ➤</a></div></div></div>}
+</section>
